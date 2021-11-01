@@ -1,0 +1,61 @@
+﻿@model IEnumerable<T2008M_WAD_Exam.Models.Exam>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+            Exam Date
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            Class Room
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faculty)
+        </th>
+        <th>Status</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Subject)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StartDateTime.TimeOfDay)
+    </td>
+    <td>
+        @item.StartDateTime.ToString("dd/MM/yyyy")
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Duration)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ClassRoom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Faculty)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status)
+    </td>
+</tr>
+}
+
+</table>
